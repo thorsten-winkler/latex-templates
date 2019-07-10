@@ -1,0 +1,39 @@
+\documentclass[a4paper,
+                appendixprefix=on,
+                BCOR=10mm,
+                chapterprefix=on,
+                DIV=10,
+                english,
+                fontsize=10pt,
+                headsepline=on,
+                twoside=off]{scrbook}
+%                xcolor=dvipsnames]{scrbook}
+
+\usepackage{custom-packages/tw-scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Sections and Chapters}
+\author{Gubert Farnsworth}
+\date{ }
+
+
+\begin{document}
+
+
+\maketitle
+
+\include{abstract}
+
+\tableofcontents
+\clearpage
+
+
+\include{chapter1/documentinfos}
+\include{chapter2/packages_and_usage}
+\include{chapter3/makefile}
+\include{chapter4/textexample}
+\include{references}
+
+
+\end{document}
