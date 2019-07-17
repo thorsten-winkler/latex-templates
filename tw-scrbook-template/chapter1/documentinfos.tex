@@ -1,0 +1,195 @@
+\chapter{Document Infos}
+% ##############################################################################
+%%%DELETE START
+The following document infos are only for this template. Using a production
+document remove \verb|\usepackage{layouts}| from preamble and this part of the
+document, surrounded with \verb+%%%DELETE START+ and \verb+%%%DELETE END+.
+The package "layouts" is responsible for a warning "Package layouts Warning:
+Layout scale set to 0.5" during compilation.\\
+
+\renewcommand{\pagevalues}{%
+%  \begin{center}
+Actual page layout values.\\
+%\begingroup
+%\def\arraystretch{0.7}
+%\begin{tabular}{l l}
+\twtabular{l l}{
+    \texttt{\bs paperheight} = \prntlen{\paperheight}  &
+    \texttt{\bs paperwidth}  = \prntlen{\paperwidth}   \\
+    \texttt{\bs hoffset}        = \prntlen{\hoffset}        &
+    \texttt{\bs voffset}        = \prntlen{\voffset}        \\
+    \texttt{\bs evensidemargin} = \prntlen{\evensidemargin} &
+    \texttt{\bs oddsidemargin}  = \prntlen{\oddsidemargin}  \\
+    \texttt{\bs topmargin}      = \prntlen{\topmargin}      &
+    \texttt{\bs headheight}     = \prntlen{\headheight}     \\
+    \texttt{\bs headsep}        = \prntlen{\headsep}        &
+    \texttt{\bs textheight}     = \prntlen{\textheight}     \\
+    \texttt{\bs textwidth}      = \prntlen{\textwidth}      &
+    \texttt{\bs footskip}       = \prntlen{\footskip}       \\
+    \texttt{\bs marginparsep}   = \prntlen{\marginparsep}   &
+    \texttt{\bs marginparpush}  = \prntlen{\marginparpush}  \\
+    \texttt{\bs columnsep}      = \prntlen{\columnsep}      &
+    \texttt{\bs columnseprule}  = \prntlen{\columnseprule}  \\
+    \texttt{\bs marginparwidth}  = \prntlen{\marginparwidth}  \\
+    1em = \prntlen{1em}  & 1ex = \prntlen{1ex} \\
+}
+%\end{tabular}
+%\endgroup
+%%  \end{center}
+}
+
+\printinunitsof{mm}{\pagevalues}\newline
+
+\pagediagram
+%%%DELETE END
+% ##############################################################################
+
+% ##############################################################################
+\section{General Infos \& Usage}
+\subsection{Document class}
+The document class used in this document is scrbook which belongs to the
+KOMA-Script bundle.
+\subsubsection{documentclass options}
+\begin{singlespace}
+\begin{lstlisting}[style=cstm-lists-latex-sty]
+\documentclass[
+    a4paper,
+    appendixprefix=on,
+    BCOR=10mm,
+    chapterprefix=on,
+    DIV=10,
+    english,
+    fontsize=10pt,
+    headsepline=on,
+    twoside=off]{scrbook}
+\end{lstlisting}
+\end{singlespace}
+\begin{twitemize}
+    \item{BCOR}
+    \item{\href{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/koma-script/doc/scrguide.pdf\#desc:typearea.option.DIV}{DIV:}\\
+        DIV infos...}
+    \item{headsepline}
+    \item{a4paper}
+    \item{english}
+    \item{twoside}
+    \item{fontsize}
+    \item{chapterprefix}
+    \item{appendixprefix}
+\end{twitemize}
+\subsubsection{References}
+\begin{itemize}
+    \item{\href{https://ctan.org/pkg/scrbook}{CTAN - scrbook}}
+    \item{\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf}{Official scrbook document (german)}}
+    \item{\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguien.pdf}{Official scrbook document (english)}}
+\end{itemize}
+
+scrbook \autocite{KOH01}
+\dautocite{scrbook}{KOH01}
+\subsection{Brackets, Parentheses \& Special Characters}
+dsadasdas
+https://de.wikibooks.org/wiki/LaTeX-Kompendium:\_Sonderzeichen
+\subsection{Fonts}
+\subsection{Listings}
+
+\begin{lstlisting}[style=cstm-lists-latex-sty]
+test
+\end{lstlisting}
+
+
+\subsection{Line and Page Breaking}
+\subsubsection{Examples}
+\subsubsection{References}
+\begin{itemize}
+    \item{\href{http://www.personal.ceu.hu/tex/breaking.htm} {CEU} \autocite{CEU01}}
+    \item{\href{https://texwelt.de/wissen/fragen/4014/was-ist-der-unterschied-zwischen-newline-und-linebreak}{Texwelt}}
+\end{itemize}
+
+
+\subsection{Table of Contents}
+
+\section{Packages \& Usage}
+% ##############################################################################
+\subsection{amsmath}
+\subsubsection{Examples}
+$$\dbinom{n}{k} = \dbinom{n-1}{k-1} +\dbinom{n-1}{k}$$
+\subsubsection{References}
+
+% ##############################################################################
+\subsection{babel}
+The babel package provides the core architecture for multi-lingual typesetting.
+If you are writing in a language other than American English, using this package
+is strongly recommended. You should load babel before biblatex and then biblatex
+will detect babel automatically.
+
+% ##############################################################################
+\subsection{biblatex}
+Citing examples:
+scrbook \autocite{KOH01}\newline
+scrbook \autocite{SOR01}\newline
+scrbook \autocite{GER01}\newline
+scrbook \autocite{GER02}\newline
+scrbook \autocite{LOS03}\newline
+scrbook \autocite{BAL01}\newline
+scrbook \autocite{BAL02}\newline
+
+% ##############################################################################
+\subsection{csquotes}
+If this package is available, biblatex will use its language sensitive quotation
+facilities to enclose certain titles in quotation marks. If not, biblatex uses
+quotes suitable for American English as a fallback. When writing in a language
+than American English, loading csquotes is strongly recommended.
+
+\subsubsection{Examples}
+\subsubsection{References}
+
+% ##############################################################################
+\subsection{hyperref}
+The package \enquote{hyperref} is used to handle cross-referencing commands in
+LaTeX to produce hypertext links in the document. It must be the last called
+package in the preamble. There are of course exceptions (e.g. like the
+\enquote{geometry} package)
+\\usepackage[pdfborder={0 0 0}, colorlinks=true, linkcolor=blue]{hyperref}
+\subsubsection{Options}
+\begin{itemize}
+    \item{pdfborder={0 0 0}\\
+        No frame around the links}
+    \item{colorlinks=true}
+    \item{linkcolor=blue}
+\end{itemize}
+\subsubsection{Examples}
+\begin{itemize}
+    \item{\textbackslash url\{$<url>$\}:\\
+        \url{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/koma-script/\
+        doc/scrguide.pdf\#desc:typearea.option.DIV}}
+    \item{\textbackslash href[options]\{$<url>$\}\{$<text>$\}:\\
+        \href{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/koma-script/doc/scrguide.pdf\#desc:typearea.option.DIV}{href link}}
+    \item{\textbackslash hyperref: \hyperref{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/koma-script/doc/scrguide.pdf\#desc:typearea.option.DIV}{category}{name}{text}}
+    \item{without: http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/koma-script/doc/scrguide.pdf\#desc:typearea.option.DIV}
+\end{itemize}
+\subsubsection{References}
+https://ctan.org/pkg/hyperref?lang=de
+http://ctan.space-pro.be/tex-archive/macros/latex/contrib/hyperref/doc/manual.pdf
+https://www.overleaf.com/learn/latex/Hyperlinks
+http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/hyperref/doc/manual.html
+\begin{itemize}
+    \item{}
+\end{itemize}
+% ##############################################################################
+\subsection{inputenc}
+% ##############################################################################
+\subsection{listings}
+% ##############################################################################
+\subsection{url}
+\subsubsection{Options}
+\begin{itemize}
+    \item{hyphens\\
+        No frame around the links}
+\end{itemize}
+% ##############################################################################
+\subsection{xcolor}
+% ##############################################################################
+\subsection{xpatch}
+The xpatch package extends the patching commands of etoolbox to biblatex
+bibliography macros, drivers and formatting directives.
+
+% ##############################################################################

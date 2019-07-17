@@ -1,0 +1,18 @@
+\documentclass [
+    a4paper,
+    appendixprefix=on,
+    BCOR=10mm,
+    chapterprefix=on,
+    DIV=10,
+    english,
+    fontsize=10pt,
+    headsepline=on,
+    twoside=off
+    ]{scrbook}
+
+\usepackage{styles/tw-scrbook-template}
+\addbibresource{__BIB-PLACEHOLDER__}
+
+\begin{document}
+\input{main}
+\end{document}
