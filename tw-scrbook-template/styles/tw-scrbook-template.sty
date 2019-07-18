@@ -1,7 +1,7 @@
 \ProvidesPackage{styles/tw-scrbook-template} [2019/07/10 v0.01 scrbook template
                                         enhancements]
 \NeedsTeXFormat{LaTeX2e}
-
+%\usepackage[tmargin=1.5in, lmargin=1.25in, rmargin=1.25in, bmargin=1.0in]{geometry}
 % ##############################################################################
 % Custom packages:
 % ----------------------------------------
@@ -24,13 +24,14 @@
 %       - \RequirePackage[svgnames]{xcolor}
 \RequirePackage{styles/cstm-listings}
 % ##############################################################################
-\RequirePackage[parfill]{parskip}
+% Not recommended: \RequirePackage[parfill]{parskip}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 \RequirePackage{enumitem}
 \RequirePackage{layouts}
+%\RequirePackage{showframe}
 \RequirePackage{amsmath}
-
+%\setlayoutscale{1}
 % To avoid warning:
 % "Class scrbook Warning: \float@addtolists detected!"
 %\usepackage{scrhack}
@@ -52,23 +53,10 @@
 % ##############################################################################
 % New commands:
 %
-\newcommand{\twtabular}[3][0.8]{
-    \begingroup
-    \def\arraystretch{#1}
-    \begin{tabular}{#2}
-        #3
-    \end{tabular}
-    \endgroup
-}
-
-\newcommand{\setsinglespacing}[1]{
+\newcommand{\cstmtabular}[2]{
     \begin{singlespace}
-        #1
+    \begin{tabular}{#1}
+        #2
+    \end{tabular}
     \end{singlespace}
 }
-
-\newenvironment{twitemize}
-{   \begin{singlespace}
-        \begin{itemize} }
-{       \end{itemize}
-    \end{singlespace}   }

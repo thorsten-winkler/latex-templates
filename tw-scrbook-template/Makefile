@@ -25,13 +25,17 @@ TEXSRC = $(LATEX_MASTERFILE_TEX)
 all : clean_deep collect-styles addbib compile rename clean1
 
 compile : $(LATEX_MASTERFILE_TEX)
-	@echo "################################################################################"
+	@echo "####################################################################\
+############"
 	@echo "Compiling latex documents: RUN 1"
-	$(PDFLATEXBIN) -draftmode $(PDFLATEXOPTS) $(LATEX_MASTERFILE_TEX) > $(LATEX_MASTER)_pass1.log
-	@echo "################################################################################"
+	$(PDFLATEXBIN) -draftmode $(PDFLATEXOPTS) $(LATEX_MASTERFILE_TEX) >\
+$(LATEX_MASTER)_pass1.log
+	@echo "####################################################################\
+############"
 	@echo "BiBering"
 	$(BIBERBIN) $(LATEX_MASTER)
-	@echo "################################################################################"
+	@echo "####################################################################\
+############"
 	@echo "Compiling latex documents: RUN 2"
 	$(PDFLATEXBIN) -draftmode $(PDFLATEXOPTS) $(LATEX_MASTERFILE_TEX) > $(LATEX_MASTER)_pass2.log
 	@echo "################################################################################"

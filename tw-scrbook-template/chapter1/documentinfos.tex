@@ -5,15 +5,13 @@ The following document infos are only for this template. Using a production
 document remove \verb|\usepackage{layouts}| from preamble and this part of the
 document, surrounded with \verb+%%%DELETE START+ and \verb+%%%DELETE END+.
 The package "layouts" is responsible for a warning "Package layouts Warning:
-Layout scale set to 0.5" during compilation.\\
+Layout scale set to 0.5" during compilation.
 
 \renewcommand{\pagevalues}{%
-%  \begin{center}
-Actual page layout values.\\
+Actual page layout values.
 %\begingroup
-%\def\arraystretch{0.7}
 %\begin{tabular}{l l}
-\twtabular{l l}{
+\cstmtabular{l l}{
     \texttt{\bs paperheight} = \prntlen{\paperheight}  &
     \texttt{\bs paperwidth}  = \prntlen{\paperwidth}   \\
     \texttt{\bs hoffset}        = \prntlen{\hoffset}        &
@@ -38,17 +36,17 @@ Actual page layout values.\\
 %%  \end{center}
 }
 
-\printinunitsof{mm}{\pagevalues}\newline
+\printinunitsof{mm}{\pagevalues}
 
 \pagediagram
 %%%DELETE END
 % ##############################################################################
-
-% ##############################################################################
 \section{General Infos \& Usage}
+%--------------
 \subsection{Document class}
 The document class used in this document is scrbook which belongs to the
 KOMA-Script bundle.
+%--------------
 \subsubsection{documentclass options}
 \begin{singlespace}
 \begin{lstlisting}[style=cstm-lists-latex-sty]
@@ -64,7 +62,7 @@ KOMA-Script bundle.
     twoside=off]{scrbook}
 \end{lstlisting}
 \end{singlespace}
-\begin{twitemize}
+\begin{itemize}
     \item{BCOR}
     \item{\href{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/koma-script/doc/scrguide.pdf\#desc:typearea.option.DIV}{DIV:}\\
         DIV infos...}
@@ -75,33 +73,78 @@ KOMA-Script bundle.
     \item{fontsize}
     \item{chapterprefix}
     \item{appendixprefix}
-\end{twitemize}
+\end{itemize}
+%--------------
 \subsubsection{References}
+%\singlespacing
 \begin{itemize}
     \item{\href{https://ctan.org/pkg/scrbook}{CTAN - scrbook}}
     \item{\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf}{Official scrbook document (german)}}
     \item{\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguien.pdf}{Official scrbook document (english)}}
 \end{itemize}
+\onehalfspacing
 
 scrbook \autocite{KOH01}
 \dautocite{scrbook}{KOH01}
+%--------------
 \subsection{Brackets, Parentheses \& Special Characters}
-dsadasdas
-https://de.wikibooks.org/wiki/LaTeX-Kompendium:\_Sonderzeichen
+\subsubsection{Examples}
+\begin{itemize}
+\item{brackets
+\begin{lstlisting}[style=cstm-lists-latex-oneline-sty]
+[]
+\end{lstlisting}
+}
+\end{itemize}
+\href{https://de.wikibooks.org/wiki/LaTeX-Kompendium:\_Sonderzeichen}{Here is a
+a list of special characters}
+%--------------
 \subsection{Fonts}
+\subsubsection{References}
+%--------------
 \subsection{Listings}
 
 \begin{lstlisting}[style=cstm-lists-latex-sty]
 test
 \end{lstlisting}
-
+\subsubsection{References}
 
 \subsection{Line and Page Breaking}
 \subsubsection{Examples}
+\begin{itemize}
+\item{Start a new paragraph:
+\begin{lstlisting}[style=cstm-lists-latex-oneline-sty]
+\\
+\end{lstlisting}
+}
+\item{Start a new line but not a new paragraph:
+\begin{lstlisting}[style=cstm-lists-latex-oneline-sty]
+\\*
+\end{lstlisting}
+}
+\item{Flush all material and start a new page, start new odd numbered page:
+\begin{lstlisting}[style=cstm-lists-latex-oneline-sty]
+\cleardoublepage
+\end{lstlisting}
+}
+\item{Flush all material and start a new page:
+\begin{lstlisting}[style=cstm-lists-latex-oneline-sty,label=test,caption=xyztest]
+\clearpage
+\end{lstlisting}
+}
+\item{Request a new line:
+\begin{lstlisting}[style=cstm-lists-latex-oneline-sty]
+\newline
+\end{lstlisting}
+}
+\end{itemize}
 \subsubsection{References}
 \begin{itemize}
-    \item{\href{http://www.personal.ceu.hu/tex/breaking.htm} {CEU} \autocite{CEU01}}
-    \item{\href{https://texwelt.de/wissen/fragen/4014/was-ist-der-unterschied-zwischen-newline-und-linebreak}{Texwelt}}
+    \item{\href{http://www.personal.ceu.hu/tex/breaking.htm}
+        {Central European University - Line and Page Breaking} \autocite{CEU01}}
+    \item{\href{https://texwelt.de/wissen/fragen/4014/was-ist-der-unterschied-zwischen-newline-und-linebreak}
+        {Texwelt - Difference \textbackslash \textbackslash, \textbackslash
+        newline and \textbackslash linebreak} \autocite{TEXWELT01}}
 \end{itemize}
 
 
@@ -125,12 +168,7 @@ will detect babel automatically.
 \subsection{biblatex}
 Citing examples:
 scrbook \autocite{KOH01}\newline
-scrbook \autocite{SOR01}\newline
-scrbook \autocite{GER01}\newline
-scrbook \autocite{GER02}\newline
-scrbook \autocite{LOS03}\newline
-scrbook \autocite{BAL01}\newline
-scrbook \autocite{BAL02}\newline
+scrbook \autocite{TEXWELT01}
 
 % ##############################################################################
 \subsection{csquotes}
