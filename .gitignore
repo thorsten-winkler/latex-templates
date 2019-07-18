@@ -5,6 +5,7 @@
 *.bib.sav
 *.blg
 *.log
+*.lol
 *.out
 *.pdf
 *.run.xml

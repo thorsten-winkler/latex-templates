@@ -5,6 +5,7 @@ LATEX_MASTERFILE_TEX = $(LATEX_MASTER).tex
 LATEX_MASTERFILE_PDF = $(LATEX_MASTER).pdf
 TARGET_DIR=pdf
 TARGET_PDF=$(TARGET_DIR)/$(LATEX_MASTERFILE_PDF)
+STYLE_FOLDER_NAME=styles
 #------------------
 # TeX Live installation
 TEXLIVE = docker run --rm -v $(PWD):/docs thorwink/texlive:2019
@@ -48,11 +49,13 @@ clean clean1 :
 	@echo "Normal cleaning..."
 	find . -type f \( \
 			-name "*.aux" -o\
+			-name "*.bak" -o\
 			-name "*.bbl" -o\
 			-name "*.bcf" -o\
 			-name "*.blg" -o\
 			-name "*.run.xml" -o\
 			-name "*.log" -o\
+			-name "*.lol" -o\
 			-name "*.out" -o\
 			-name "*.toc" \)\
 			-exec rm '{}' \;
@@ -60,8 +63,9 @@ clean clean1 :
 clean_deep : clean
 	@echo "################################################################################"
 	@echo "Deep cleaning..."
+	find . -type f -name "*.bak" -exec rm '{}' \;
 	find . -type f -name "*.pdf" -exec rm '{}' \;
-	rm -rf styles
+	rm -rf $(STYLE_FOLDER_NAME) $(LATEX_MASTERFILE_TEX)
 
 addbib : collect-styles
 	@echo "################################################################################"
@@ -73,7 +77,7 @@ addbib : collect-styles
 collect-styles :
 	@echo "################################################################################"
 	@echo "Collect styles and templates ($(LATEX_MASTERFILE_TEX))"
-	cp -r ../styles .
+	cp -r ../../$(STYLE_FOLDER_NAME) .
 	cp ../$(LATEX_MASTERFILE_TEX) .
 
 debug : clean_deep collect-styles addbib compile rename
