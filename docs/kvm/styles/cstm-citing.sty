@@ -1,0 +1,32 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/cstm-citing}[2019/07/10 v0.01 cstm citing definitions]
+
+% babel should be loaded before biblatex
+\RequirePackage{babel}
+\RequirePackage[autostyle=true]{csquotes}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[
+    backend=biber,
+    bibstyle=ieee-alphabetic,
+    citestyle=ieee-alphabetic,
+    sorting=nty,
+    date=iso,
+    urldate=iso,
+    dashed=false,
+    isbn=false,
+    doi=false,
+    url=true
+    ]{biblatex}
+
+% Make some space between bib entries
+\setlength\bibitemsep{1.5\itemsep}
+
+% In bibliography
+%   "Url: <url>" instead of "[ONLINE]. Available: <url>"
+\DefineBibliographyStrings{english}{%
+    url = Url
+}
+
+\newcommand{\dautocite}[2]{
+    \enquote{#1} \autocite{#2}
+}
