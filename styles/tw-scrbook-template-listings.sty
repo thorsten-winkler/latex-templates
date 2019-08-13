@@ -1,0 +1,244 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/tw-scrbook-template-listings}[2019/08/07 v0.02 Listing
+                    configuration and definitions]
+
+\RequirePackage{caption}
+\RequirePackage{listings}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{xparse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% General listing configuration
+%%% https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+%%% http://ctan.math.washington.edu/tex-archive/macros/latex/contrib/listings/listings.pdf
+%%% https://latexcolor.com/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{general-listings-color}{rgb}{0.98, 0.98, 0.98}
+\definecolor{general-oneline-listings-color}{rgb}{0.98, 0.98, 0.98}
+
+% linewidth config for 80 chars inside listing
+\newcommand{\lwwide}{409pt}
+
+\lstset{
+    backgroundcolor=\color{general-listings-color},
+    basicstyle=\footnotesize\ttfamily,
+    numbers=right,  % Location of line-numbers (none, left, right)
+    numbersep=5pt,  % Distance  of line numbers from code
+    numberstyle=\tiny\color{black}, % style/font used for the line-numbers
+    stepnumber=1,   % Step between two line-numbers (1 > each line)
+    breakatwhitespace=false,    % automatic breaks should only happen at whitespace
+    breaklines=true,    % sets automatic line breaking
+    captionpos=t,   % Caption position b > bottom & t > top
+    commentstyle=\color{gray},
+    frame=lrb,  % Single frame left, right, bottom. Not at top
+    framesep=0pt,   % Additional space between code and frame, Default 3pt
+    framerule=0.5pt,    % Frame size
+    belowcaptionskip=-1pt,  % difference between caption and listing
+    framexleftmargin=0pt,   % Addit. space (to framesep) between code and frame
+    rulecolor=\color{gray},    % Color of frame
+    keepspaces=true,    % Keeps spaces in text
+    keywordstyle=\color{blue},  % Font/Color of keywords in listing
+    escapeinside={(*@}{@*)},    % If you want to add LaTeX within your code
+    showspaces=false,   % Show spaces (with particular underscores)
+    showstringspaces=false, % Underline spaces within strings only
+    showtabs=false, % Show tabs (with particular underscores)
+    stringstyle=\color{black}, % Font/Color of strings in listing
+    tabsize=2  % Sets default tabsize to 4 spaces
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Custom listing styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Bash
+%++++++++++++++++++++++++++++++++++++++
+% Default
+\lstdefinestyle{tst-listing-bash} {
+    language=bash,          % language of the code
+    deletekeywords={...},   % Keywords to delete from the given language
+    morekeywords={          % If you want to add more keywords to the set
+        zypper
+    }
+}
+%++++++++++++++++++++++++++++++++++++++
+% One line without numbering
+\lstdefinestyle{tst-listing-bash-ol} {
+    language=bash,
+    morekeywords={
+        zypper
+    },
+    numbers=none
+}
+%++++++++++++++++++++++++++++++++++++++
+% Default but wider (for listings with 80 chars)
+\lstdefinestyle{tst-listing-bash-wide} {
+    framexleftmargin=10pt,   % Addit. space (to framesep) between code and frame
+    framexrightmargin=3pt,   % Addit. space (to framesep) between code and frame
+    linewidth=\lwwide,
+    language=bash,
+    morekeywords={
+        zypper
+    }
+}
+%++++++++++++++++++++++++++++++++++++++
+% One line without numbering and wider (for listings with 80 chars)
+\lstdefinestyle{tst-listing-bash-ol-wide} {
+    framexleftmargin=10pt,
+    framexrightmargin=3pt,
+    linewidth=\lwwide,
+    language=bash,
+    morekeywords={
+        zypper
+    },
+    numbers=none
+}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Make
+%++++++++++++++++++++++++++++++++++++++
+% Default
+\lstdefinestyle{tst-listing-make} {
+    language=[gnu] make
+}
+%++++++++++++++++++++++++++++++++++++++
+% Default but wider (for listings with 80 chars)
+\lstdefinestyle{tst-listing-make-wide} {
+    framexleftmargin=10pt,
+    framexrightmargin=3pt,
+    linewidth=\lwwide,
+    language=[gnu] make
+}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ TeX
+%++++++++++++++++++++++++++++++++++++++
+% Default
+\lstdefinestyle{tst-listing-tex} {
+    language=TeX,
+    alsoletter={ \\ },
+    morekeywords={
+        \\\\,
+        \\\\\*,
+        \\chapter,
+        \\cleardoublepage,
+        \\clearpage,
+        \\newline,
+        \\documentclass,
+        \\section,
+        scrbook,
+        \\subsection,
+        \\subsubsection
+    }
+}
+%++++++++++++++++++++++++++++++++++++++
+% Default, but wider (for listings with 80 chars)
+\lstdefinestyle{tst-listing-tex-wide} {
+    framexleftmargin=10pt,
+    framexrightmargin=3pt,
+    linewidth=\lwwide,
+    language=TeX,
+    alsoletter={ \\ },
+    morekeywords={
+        \\\\,
+        \\\\\*,
+        \\chapter,
+        \\cleardoublepage,
+        \\clearpage,
+        \\newline,
+        \\documentclass,
+        \\section,
+        scrbook,
+        \\subsection,
+        \\subsubsection
+    }
+}
+%++++++++++++++++++++++++++++++++++++++
+% One line without numbering
+\lstdefinestyle{tst-listing-tex-ol} {
+    language=TeX,
+    alsoletter={ \\, \* },
+    morekeywords={
+        \\\\,
+        \\\\\*,
+        \\chapter,
+        \\cleardoublepage,
+        \\clearpage,
+        \\newline,
+        \\documentclass,
+        \\section,
+        scrbook,
+        \\subsection,
+        \\subsubsection
+    },
+    numbers=none
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Custom caption
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareCaptionFont{white}{\color{white}}
+%++++++++++++++++++++++++++++++++++++++
+% Default caption format for default listings
+\DeclareCaptionFormat{listing_default}{%
+    \hspace*{-0.5pt}% framesep=0pt + framerule=0.5pt + framexleftmargin=0pt
+    \colorbox{gray}{%
+        \parbox{%
+            % 2*framerule=0.5pt+ framexleftmargin=0pt
+            \dimexpr\linewidth-2\fboxsep+1pt\relax%
+        }%
+        {#1#2#3}%
+    }%
+}
+%++++++++++++++++++++++++++++++++++++++
+% Caption format for wider listings (with <80 chars)
+\DeclareCaptionFormat{listing_wide}{%
+    \hspace*{-10.5pt}%
+    \colorbox{gray}{%
+        % 409pt (for 80 chars) + framexleftmargin=7pt + 2*framerule=0.5pt
+        \parbox{417pt}%
+        {#1#2#3}%
+    }%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Custom listing environments and commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%++++++++++++++++++++++++++++++++++++++
+% Default environment for listings
+\lstnewenvironment{sscodeenv_default}[1]
+{
+    \captionsetup[lstlisting]{
+        format=listing_default,
+        labelfont=white,
+        textfont=white,
+        font=bf}
+    \lstset{#1}
+    \singlespacing
+}
+{
+    \onehalfspacing
+}
+%++++++++++++++++++++++++++++++++++++++
+% Wider environment for listings with < 80 chars
+\lstnewenvironment{sscodeenv_wide}[1]
+{
+    \captionsetup[lstlisting]{
+        format=listing_wide,
+        labelfont=white,
+        textfont=white,
+        font=bf}
+    \lstset{#1}
+    \singlespacing
+}
+{
+    \onehalfspacing
+}
+%++++++++++++++++++++++++++++++++++++++
+\newcommand{\sslstinputlisting}[2]{%
+    \captionsetup[lstlisting]{%
+        format=listing_wide,%
+        labelfont=white,%
+        textfont=white,%
+        font=bf}%
+    \singlespacing%
+    \lstinputlisting[#1]{#2}%
+    \onehalfspacing%
+}

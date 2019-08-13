@@ -10,8 +10,11 @@
     twoside=off
     ]{scrbook}
 
-\usepackage{styles/tw-scrbook-template}
+\usepackage{styles/tw-scrbook-template-main}
 \addbibresource{tw-scrbook-template.bib}
+
+% Abbreviations außerhalb definieren und mit printglossary aufrufen
+\input{abbreviations}
 
 \begin{document}
 \input{main}

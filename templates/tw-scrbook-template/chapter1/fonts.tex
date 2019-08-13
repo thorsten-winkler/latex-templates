@@ -1,0 +1,29 @@
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Section "Fonts"
+%+++++++++++++++++++++++++++++++++++++++
+\section{Fonts}
+\code{lmodern} is the default font used in this document and is defined in
+\code{styles/tw-scrbook-template-main.sty}. On \href{https://texwelt.de/wissen/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}
+{\code{texwelt.de}} there is also a good (german) description about the
+\code{fontenc} package.
+\begin{sscodeenv_default}{%
+    style=tst-listing-tex,%
+    label=lbl_font_packages,%
+    caption=Fonts packages}
+    \RequirePackage[T1]{fontenc}
+    \RequirePackage{lmodern}
+\end{sscodeenv_default}
+
+%+++++++++++++++++++++++++++++++++++++++
+\subsection{References}
+\begin{tst-default-list}
+    \item{\href{https://texwelt.de/wissen/fragen/5537/was-macht-eigentlich-usepackaget1fontenc}
+        {\code{texwelt.de} - Was macht \code{fontenc}?}
+    }
+    \item{\href{https://www.namsu.de/Extra/pakete/Lmodern.html}
+        {\code{namsu.de} - Das \code{lmodern} Paket}
+    }
+    \item{\href{https://ctan.org/pkg/lm}
+        {\code{CTAN} - \code{lm} - Latin modern fonts in outline formats}
+    }
+\end{tst-default-list}

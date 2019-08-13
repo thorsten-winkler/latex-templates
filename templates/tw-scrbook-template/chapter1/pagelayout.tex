@@ -1,0 +1,68 @@
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Section "Page layout"
+%+++++++++++++++++++++++++++++++++++++++
+\section{Page Layout}
+This section describes the page layout used in this template. It also provides
+some background information.
+%+++++++++++++++++++++++++++++++++++++++
+\subsection{Fundamentals \& Construction with \code{typearea}}
+\begin{itemize}
+    \item{\href{http://packages.oth-regensburg.de/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf#section.2.1}
+        {Page Layout Fundamentals}}
+    \item{\href{http://packages.oth-regensburg.de/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf#section.2.2}
+            {\code{BCOR}} is the correction option to specify the absolute value of the
+            binding correction. For the binding correction this value is
+            subtracted from the inner edge of the paper. \autocite{KOH19}
+    }
+    \item{After subtracting \code{BCOR} the rest of the page is divided
+            horizontally into \href{http://packages.oth-regensburg.de/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf#section.2.6}
+            {\code{DIV}} columns of equal width. \autocite{KOH19}
+    }
+\end{itemize}
+
+%+++++++++++++++++++++++++++++++++++++++
+\subsection{Dimensions}
+%%%%%%%%%%%%%%%
+%%%DELETE START
+The following document infos are only for this template. Using a production
+document remove \verb|\usepackage{layouts}| from preamble and this part of the
+document, surrounded with \verb+%%%DELETE START+ and \verb+%%%DELETE END+.
+The package \code{layouts} is responsible for a warning \code{Package layouts
+Warning: Layout scale set to 0.5} during compilation.
+
+%+++++++++++++++++++++++++++++++++++++++
+\subsubsection{pagevalues}
+\pagevalues
+
+%+++++++++++++++++++++++++++++++++++++++
+\subsubsection{pagevalues in mm}
+\newcommand{\pgvals}{
+Actual page layout values.\\[\baselineskip]
+\cstmtabular{l l}{
+    \texttt{\bs paperheight} = \prntlen{\paperheight}  &
+    \texttt{\bs paperwidth}  = \prntlen{\paperwidth}   \\
+    \texttt{\bs hoffset}        = \prntlen{\hoffset}        &
+    \texttt{\bs voffset}        = \prntlen{\voffset}        \\
+    \texttt{\bs evensidemargin} = \prntlen{\evensidemargin} &
+    \texttt{\bs oddsidemargin}  = \prntlen{\oddsidemargin}  \\
+    \texttt{\bs topmargin}      = \prntlen{\topmargin}      &
+    \texttt{\bs headheight}     = \prntlen{\headheight}     \\
+    \texttt{\bs headsep}        = \prntlen{\headsep}        &
+    \texttt{\bs textheight}     = \prntlen{\textheight}     \\
+    \texttt{\bs textwidth}      = \prntlen{\textwidth}      &
+    \texttt{\bs footskip}       = \prntlen{\footskip}       \\
+    \texttt{\bs marginparsep}   = \prntlen{\marginparsep}   &
+    \texttt{\bs marginparpush}  = \prntlen{\marginparpush}  \\
+    \texttt{\bs columnsep}      = \prntlen{\columnsep}      &
+    \texttt{\bs columnseprule}  = \prntlen{\columnseprule}  \\
+    \texttt{\bs marginparwidth}  = \prntlen{\marginparwidth}  \\
+    \texttt{1em}= \prntlen{1em}  & \texttt{1ex}= \prntlen{1ex} \\
+}
+}
+\printinunitsof{mm}{\pgvals}
+
+%+++++++++++++++++++++++++++++++++++++++
+\subsubsection{pagediagram by \texttt{layouts} package}
+\pagediagram
+%%%DELETE END
+%%%%%%%%%%%%%%%

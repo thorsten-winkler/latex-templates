@@ -1,27 +1,37 @@
-###############################################################################
+################################################################################
+# Each output master/pdf document will be called like the directory where it
+# resides
 CURRENT_DIR_NAME=$(shell basename $(PWD))
 LATEX_MASTER=$(CURRENT_DIR_NAME)
 LATEX_MASTERFILE_TEX = $(LATEX_MASTER).tex
 LATEX_MASTERFILE_PDF = $(LATEX_MASTER).pdf
+# The name of the template you choose and the directory where all template
+# folders located
 TEMPLATE=tw-scrbook-template
 TEMPLATE_DIR=../../templates
 TEMPLATE_TEX=$(TEMPLATE).tex
+# The name of the folder, where the output PDF will be created
 TARGET_DIR=pdf
 TARGET_PDF=$(TARGET_DIR)/$(LATEX_MASTERFILE_PDF)
+# The directory and name of the overall style folder
 STYLE_FOLDER_NAME=styles
 STYLE_FOLDER_DIR=../../$(STYLE_FOLDER_NAME)
 #------------------
-# TeX Live installation
+# Dockerized TeX Live installation
+# 	- https://github.com/thorsten-winkler/docker-texlive
 TEXLIVE = docker run --rm -v $(PWD):/docs thorwink/texlive:2019
 #------------------
 # pdflatex
 PDFLATEXBIN = $(TEXLIVE) pdflatex
 PDFLATEXOPTS = -no-shell-escape -file-line-error -halt-on-error
 #------------------
+# makeglossaries
+MKGLOSS = $(TEXLIVE) makeglossaries
+#------------------
 # biber
 BIBERBIN= $(TEXLIVE) biber
 
-###############################################################################
+################################################################################
 # Source files
 TEXSRC = $(LATEX_MASTERFILE_TEX)
 
@@ -34,6 +44,10 @@ compile : $(LATEX_MASTERFILE_TEX)
 ############"
 	@echo "Compiling latex documents: RUN 1"
 	$(PDFLATEXBIN) -draftmode $(PDFLATEXOPTS) $(LATEX_MASTERFILE_TEX) >\
+$(LATEX_MASTER)_pass1.log
+	@echo "####################################################################\
+############"
+	@echo "Making glossaries" && $(MKGLOSS) $(LATEX_MASTER) >>\
 $(LATEX_MASTER)_pass1.log
 	@echo "####################################################################\
 ############"
@@ -57,11 +71,15 @@ clean clean1 :
 	@echo "Normal cleaning..."
 	find . -type f \( \
 			-name "*.aux" -o\
+			-name "*.acri" -o\
+			-name "*.acrl" -o\
+			-name "*.acro" -o\
 			-name "*.bak" -o\
 			-name "*.bbl" -o\
 			-name "*.bcf" -o\
 			-name "*.blg" -o\
 			-name "*.run.xml" -o\
+			-name "*.ist" -o\
 			-name "*.log" -o\
 			-name "*.lol" -o\
 			-name "*.out" -o\

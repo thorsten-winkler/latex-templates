@@ -1,0 +1,83 @@
+\ProvidesPackage{styles/tw-scrbook-template-main} [2019/07/10 v0.01 scrbook template
+                                        enhancements]
+\NeedsTeXFormat{LaTeX2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Default packages:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%+++++++++++++++++++++++++++++++++++++++
+% https://texwelt.de/wissen/fragen/5537/was-macht-eigentlich-usepackaget1fontenc
+\RequirePackage[T1]{fontenc}
+%+++++++++++++++++++++++++++++++++++++++
+% https://www.namsu.de/Extra/pakete/Lmodern.html
+% https://ctan.org/pkg/lm
+\RequirePackage{lmodern}
+%+++++++++++++++++++++++++++++++++++++++
+% "\RequirePackage[hyphens]{url}" must loaded before "biblatex" because the
+%   "biblatex" package also loads "url" with different options. Doing not so,
+%   compilation results in "Latex Error: Option clash for package".
+%   https://texfaq.org/FAQ-optionclash
+\RequirePackage[hyphens]{url}
+%+++++++++++++++++++++++++++++++++++++++
+% Create lorem ipsum text passages easily
+\RequirePackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Custom packages:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import custom citing styles
+%   - In "styles/cstm-citing" already define:
+%       - \RequirePackage{babel}
+%       - \RequirePackage[utf8]{inputenc}
+%       - \RequirePackage[autostyle=true]{csquotes}
+%       - \RequirePackage[...]{biblatex}
+\RequirePackage{styles/tw-scrbook-template-citing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import custom listings styles
+%   - In "styles/cstm-listings" already define:
+%       - \RequirePackage{caption}
+%       - \RequirePackage{listings}
+%       - \RequirePackage[svgnames]{xcolor}
+%       - \RequirePackage{xparse}
+\RequirePackage{styles/tw-scrbook-template-listings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Import custom lists
+\RequirePackage{styles/tw-scrbook-template-lists}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Not recommended: \RequirePackage[parfill]{parskip}
+\RequirePackage{enumitem}
+\RequirePackage{layouts}
+\RequirePackage{amsmath}
+% To avoid warning:
+% "Class scrbook Warning: \float@addtolists detected!"
+%\usepackage{scrhack}
+
+% 1.5 times spacing between all lines
+\RequirePackage[onehalfspacing]{setspace}
+
+% Set these two counters to 3 so that in scrbook subsubsections are numbered and
+% indexed in toc
+% https://tex.stackexchange.com/questions/17877/how-to-show-subsubsections-and-paragraphs-in-toc/17879#17879
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
+
+\RequirePackage[nomain, toc, nonumberlist, nopostdot]{glossaries}
+\RequirePackage[htt]{hyphenat}
+% hyperref must be the last called package (exception geometry package)
+\RequirePackage[pdfborder={0 0 0}, colorlinks=true, linkcolor=blue]{hyperref}
+
+% ##############################################################################
+% New commands:
+%
+\newcommand{\cstmtabular}[2]{
+    \begin{tabular}{#1}
+        #2
+    \end{tabular}
+}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\RequirePackage{styles/tw-scrbook-template-custom}

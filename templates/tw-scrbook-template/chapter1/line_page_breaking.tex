@@ -1,0 +1,36 @@
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Section "Line and Page Breaking"
+%+++++++++++++++++++
+\section{Line and Page Breaking}
+\subsection{Examples}
+There is a small list of examples how break lines and pages in
+\hyperref[line_and_page_breaking_listing]{Listing}
+\ref{lbl_line_and_page_breaking_listing}.
+\begin{sscodeenv_wide}{%
+    style=tst-listing-tex-wide,%
+    label=lbl_line_and_page_breaking_listing,%
+    caption=Examples for line and page breaking}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New line
+    \\
+
+% New line but not a new paragraph
+    \\*
+
+% Flush all material and start a new page, start new odd numbered page
+    \cleardoublepage
+
+% Flush all material and start a new page
+    \clearpage
+
+% Request a new line
+    \newline
+\end{sscodeenv_wide}
+\subsubsection{References}
+\begin{itemize}
+    \item{\href{http://www.personal.ceu.hu/tex/breaking.htm}
+        {Central European University - Line and Page Breaking} \autocite{CEU01}}
+    \item{\href{https://texwelt.de/wissen/fragen/4014/was-ist-der-unterschied-zwischen-newline-und-linebreak}
+        {Texwelt - Difference \textbackslash \textbackslash, \textbackslash
+        newline and \textbackslash linebreak} \autocite{TEXWELT14}}
+\end{itemize}

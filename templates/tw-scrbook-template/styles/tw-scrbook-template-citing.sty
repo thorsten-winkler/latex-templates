@@ -1,21 +1,24 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{styles/cstm-citing}[2019/07/10 v0.01 cstm citing definitions]
+\ProvidesPackage{styles/tw-scrbook-template-citing}[2019/08/07 v0.02 Citing
+                    configuration and definitions]
 
 % babel should be loaded before biblatex
 \RequirePackage{babel}
-\RequirePackage[autostyle=true]{csquotes}
+% inputenc must be loaded before csquotes
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[autostyle=true]{csquotes}
 \RequirePackage[
     backend=biber,
     bibstyle=ieee-alphabetic,
     citestyle=ieee-alphabetic,
-    sorting=nty,
     date=iso,
-    urldate=iso,
+    doi=false,
     dashed=false,
     isbn=false,
-    doi=false,
-    url=true
+    seconds=true,
+    sorting=nty,
+    url=true,
+    urldate=iso,
     ]{biblatex}
 
 % Make some space between bib entries
@@ -27,6 +30,7 @@
     url = Url
 }
 
+% Used to make direct cites
 \newcommand{\dautocite}[2]{
     \enquote{#1} \autocite{#2}
 }

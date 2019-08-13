@@ -1,0 +1,33 @@
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++ Section "Preamble"
+%+++++++++++++++++++++++++++++++++++++++
+\section{Preamble}
+%+++++++++++++++++++++++++++++++++++++++
+\subsection{documentclass options}
+The document class used in this document is
+\code{\href{https://ctan.org/pkg/scrbook}{scrbook}} which belongs to the
+KOMA-Script bundle. Some of its \code{options} are described
+\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf#section.2.4}
+{here}.
+\begin{sscodeenv_default}{%
+    style=tst-listing-tex,%
+    label=lbl_docclass_options,%
+    caption=\code{\textbackslash documentclass} options of this document}
+\documentclass[
+    a4paper,
+    appendixprefix=on,
+    BCOR=10mm,
+    chapterprefix=on,
+    DIV=calc,
+    english,
+    fontsize=10pt,
+    headsepline=on,
+    twoside=off]{scrbook}
+\end{sscodeenv_default}
+%+++++++++++++++++++++++++++++++++++++++
+\subsection{References}
+\begin{tst-default-list}
+    \item{\href{https://ctan.org/pkg/scrbook}{CTAN - scrbook}}
+    \item{\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguide.pdf}{Official scrbook document (german)}}
+    \item{\href{http://www.pirbot.com/mirrors/ctan/macros/latex/contrib/koma-script/doc/scrguien.pdf}{Official scrbook document (english)}}
+\end{tst-default-list}
